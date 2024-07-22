@@ -22,7 +22,7 @@ export class GifsService {
   }
 
   private organizeHistory(tag: string): void {
-    tag = tag.toLowerCase();
+    tag = tag.toLowerCase().trim();
     if (this._tagHistory.includes(tag)) {
       this._tagHistory = this._tagHistory.filter((oldTag) => oldTag !== tag);
     }
@@ -50,7 +50,7 @@ export class GifsService {
 
     const params = new HttpParams()
       .set('api_key', this.apiKey)
-      .set('limit', '12')
+      .set('limit', '20')
       .set('q', tag);
 
     this.http
